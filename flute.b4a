@@ -80,6 +80,9 @@ Sub Globals
 	Dim high=0 As Int
 	Dim low=0 As Int
 	Dim middle=0 As Int
+	Dim mm=1 As Int
+	Dim nn=1 As Int
+	Dim duration=4 As Int
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -281,9 +284,6 @@ End Sub
 
 
 Sub Activity_KeyPress (KeyCode As Int) As Boolean 'Return True to consume the event
-	Dim mm=1 As Int
-	Dim nn=1 As Int
-	Dim duration=4 As Int
     If KeyCode = KeyCodes.KEYCODE_BACK Then
 	    now = DateTime.now
 	    minutes=DateTime.Getminute(now)
