@@ -54,30 +54,22 @@ Sub Process_Globals
 	'These global variables will be declared once when the application starts.
 	'These variables can be accessed from all modules.
     Dim MP As MediaPlayer 
-	Dim i=0 As Int
-	Dim mm=1 As Int
-	Dim nn=1 As Int
-	Dim duration=4 As Int
 End Sub
 
 Sub Globals
 	'These global variables will be redeclared each time the activity is created.
 	'These variables can only be accessed from this module.
     Dim AR As AudioRecorder
+
+	Dim timeend As Int
+	Dim timebegin As Int
+	Dim minutes As Int
+	Dim seconds As Int
+    Dim now As Long
+
 	Dim Button1 As Button
 	Dim Button10 As Button
-	Dim Button11 As Button
-	Dim Button12 As Button
-	Dim Button13 As Button
-	Dim Button14 As Button
-	Dim Button15 As Button
-	Dim Button16 As Button
-	Dim Button17 As Button
-	Dim Button18 As Button
-	Dim Button19 As Button
 	Dim Button2 As Button
-	Dim Button20 As Button
-	Dim Button21 As Button
 	Dim Button3 As Button
 	Dim Button4 As Button
 	Dim Button5 As Button
@@ -85,13 +77,9 @@ Sub Globals
 	Dim Button7 As Button
 	Dim Button8 As Button
 	Dim Button9 As Button
-	Dim Timer1 As Timer
-	Dim timeend As Int
-	Dim timebegin As Int
-	Dim minutes As Int
-	Dim seconds As Int
-    Dim now As Long
-
+	Dim high=0 As Int
+	Dim low=0 As Int
+	Dim middle=0 As Int
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -102,12 +90,11 @@ Sub Activity_Create(FirstTime As Boolean)
 		AR.Initialize()
 	End If
 	Activity.AddMenuItem("Stop","stop")
-	Activity.AddMenuItem("Change Theme","ct")
 	Activity.AddMenuItem("Record","record")
 	Activity.AddMenuItem("Stop Record","srecord")
 	Activity.AddMenuItem("About","about")
 	Activity.AddMenuItem("Exit","kill")
-
+    
 
 End Sub
 
@@ -120,133 +107,145 @@ Sub Activity_Pause (UserClosed As Boolean)
 End Sub
 
 
+Sub Button9_Down
+	middle=1
+End Sub
+Sub Button9_Up
+	middle=0
+End Sub
+Sub Button8_Down
+	low=1
+End Sub
+Sub Button8_Up
+	low=0
+End Sub
+Sub Button10_Down
+	high=1
+End Sub
+Sub Button10_Up
+	high=0
+End Sub
 
-Sub Button9_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "2.wav")
-  MP.Play	
-End Sub
-Sub Button8_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "1.wav")
-  MP.Play 			
-End Sub
 Sub Button7_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "7-.wav")
-  MP.Play 			
+  If low=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "7-.wav")
+      MP.Play	
+  End If
+  If middle=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "7.wav")
+      MP.Play 
+  End If
+  If high=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "7+.wav")
+      MP.Play 
+  End If	
 End Sub
 Sub Button6_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "6-.wav")
-  MP.Play 			
+  If low=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "6-.wav")
+      MP.Play	
+  End If
+  If middle=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "6.wav")
+      MP.Play 
+  End If
+  If high=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "6+.wav")
+      MP.Play 
+  End If		
 End Sub
 Sub Button5_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "5-.wav")
-  MP.Play 			
+  If low=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "5-.wav")
+      MP.Play	
+  End If
+  If middle=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "5.wav")
+      MP.Play 
+  End If
+  If high=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "5+.wav")
+      MP.Play 
+  End If	
 End Sub
 Sub Button4_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "4-.wav")
-  MP.Play 		
+  If low=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "4-.wav")
+      MP.Play	
+  End If
+  If middle=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "4.wav")
+      MP.Play 
+  End If
+  If high=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "4+.wav")
+      MP.Play 
+  End If	
 End Sub
 Sub Button3_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "3-.wav")
-  MP.Play 	
+  If low=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "3-.wav")
+      MP.Play	
+  End If
+  If middle=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "3.wav")
+      MP.Play 
+  End If
+  If high=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "3+.wav")
+      MP.Play 
+  End If
 End Sub
-Sub Button21_Click
-  MP.stop
-  MP.stop
-  
-  MP.Load(File.DirAssets, "7+.wav")
-  MP.Play		
-End Sub
-Sub Button20_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "6+.wav")
-  MP.Play		
-End Sub
+
 Sub Button2_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "2-.wav")
-  MP.Play 
+  If low=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "2-.wav")
+      MP.Play	
+  End If
+  If middle=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "2.wav")
+      MP.Play 
+  End If
+  If high=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "2+.wav")
+      MP.Play 
+  End If
 End Sub
-Sub Button19_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "5+.wav")
-  MP.Play		
-End Sub
-Sub Button18_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "4+.wav")
-  MP.Play		
-End Sub
-Sub Button17_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "3+.wav")
-  MP.Play		
-End Sub
-Sub Button16_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "2+.wav")
-  MP.Play		
-End Sub
-Sub Button15_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "1+.wav")
-  MP.Play	
-End Sub
-Sub Button14_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "7.wav")
-  MP.Play	
-End Sub
-Sub Button13_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "6.wav")
-  MP.Play	
-End Sub
-Sub Button12_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "5.wav")
-  MP.Play	
-End Sub
-Sub Button11_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "4.wav")
-  MP.Play	
-End Sub
-Sub Button10_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "3.wav")
-  MP.Play	
-End Sub
+
 Sub Button1_Click
-  MP.stop
-  
-  MP.Load(File.DirAssets, "1-.wav")
-  MP.Play 
+  If low=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "1-.wav")
+      MP.Play	
+  End If
+  If middle=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "1.wav")
+      MP.Play 
+  End If
+  If high=1 Then
+      MP.stop
+      MP.Load(File.DirAssets, "1+.wav")
+      MP.Play 
+  End If
 End Sub
 
 Sub stop_Click
@@ -278,21 +277,13 @@ Sub srecord_Click
   AR.Stop
   ToastMessageShow("录音文件保存为/sdcard/myRecording.wav。",False)
 End Sub
-Sub ct_Click
-  If i=0 Then
-  Activity.RemoveAllViews
-  Activity.LoadLayout("flute2")
-  i=1
-  Else If i=1 Then 
-  Activity.RemoveAllViews
-  Activity.LoadLayout("flute")
-  i=0
-  End If
-End Sub
 
 
 
 Sub Activity_KeyPress (KeyCode As Int) As Boolean 'Return True to consume the event
+	Dim mm=1 As Int
+	Dim nn=1 As Int
+	Dim duration=4 As Int
     If KeyCode = KeyCodes.KEYCODE_BACK Then
 	    now = DateTime.now
 	    minutes=DateTime.Getminute(now)
@@ -305,15 +296,15 @@ Sub Activity_KeyPress (KeyCode As Int) As Boolean 'Return True to consume the ev
 		
 		If duration<3 Then
 		  ExitApplication
-		Else
+		Else  'time out,reset.
 		  mm=1
 		  nn=1
 		End If
 		
-        If mm=1 Then
+        If mm=1 Then  
 		  ToastMessageShow("再按一次退出",False)
 		  timebegin=minutes*60+seconds
-		  nn=0
+		  nn=0 'start counting duration.
 		End If
 		
         Return True
@@ -321,3 +312,5 @@ Sub Activity_KeyPress (KeyCode As Int) As Boolean 'Return True to consume the ev
         Return False
     End If	
 End Sub
+
+
