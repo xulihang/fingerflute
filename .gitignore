@@ -1,0 +1,13 @@
+Objects/bin/*
+
+
+Thumbs.db
+.DS_Store
+
+*.ap_
+*.apk
+*.dex
+*.bak
+*~
+*.class
+*.java

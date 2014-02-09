@@ -1,0 +1,323 @@
+﻿Version=3
+IconFile=
+NumberOfModules=1
+Module1=about
+ModuleVisible1=1
+Package=org.flute.xulihang
+DoNotOverwriteManifest=False
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="14" />~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
+UserTypesHint=
+NumberOfFiles=24
+File1=1.wav
+File2=1-.wav
+File3=1+.wav
+File4=2.wav
+File5=2-.wav
+File6=2+.wav
+File7=3.wav
+File8=3-.wav
+File9=3+.wav
+File10=4.wav
+File11=4-.wav
+File12=4+.wav
+File13=5.wav
+File14=5-.wav
+File15=5+.wav
+File16=6.wav
+File17=6-.wav
+File18=6+.wav
+File19=7.wav
+File20=7-.wav
+File21=7+.wav
+File22=about.bal
+File23=flute.bal
+File24=flute2.bal
+NumberOfLibraries=2
+Library1=audiorecorder
+Library2=core
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: 长笛模拟器
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: True
+	#IncludeTitle: False
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+    Dim MP As MediaPlayer 
+	Dim i=0 As Int
+	Dim mm=1 As Int
+	Dim nn=1 As Int
+	Dim duration=4 As Int
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+    Dim AR As AudioRecorder
+	Dim Button1 As Button
+	Dim Button10 As Button
+	Dim Button11 As Button
+	Dim Button12 As Button
+	Dim Button13 As Button
+	Dim Button14 As Button
+	Dim Button15 As Button
+	Dim Button16 As Button
+	Dim Button17 As Button
+	Dim Button18 As Button
+	Dim Button19 As Button
+	Dim Button2 As Button
+	Dim Button20 As Button
+	Dim Button21 As Button
+	Dim Button3 As Button
+	Dim Button4 As Button
+	Dim Button5 As Button
+	Dim Button6 As Button
+	Dim Button7 As Button
+	Dim Button8 As Button
+	Dim Button9 As Button
+	Dim Timer1 As Timer
+	Dim timeend As Int
+	Dim timebegin As Int
+	Dim minutes As Int
+	Dim seconds As Int
+    Dim now As Long
+
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("flute")
+    MP.Initialize2("MP")
+	If FirstTime Then
+		AR.Initialize()
+	End If
+	Activity.AddMenuItem("Stop","stop")
+	Activity.AddMenuItem("Change Theme","ct")
+	Activity.AddMenuItem("Record","record")
+	Activity.AddMenuItem("Stop Record","srecord")
+	Activity.AddMenuItem("About","about")
+	Activity.AddMenuItem("Exit","kill")
+
+
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+
+
+Sub Button9_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "2.wav")
+  MP.Play	
+End Sub
+Sub Button8_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "1.wav")
+  MP.Play 			
+End Sub
+Sub Button7_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "7-.wav")
+  MP.Play 			
+End Sub
+Sub Button6_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "6-.wav")
+  MP.Play 			
+End Sub
+Sub Button5_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "5-.wav")
+  MP.Play 			
+End Sub
+Sub Button4_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "4-.wav")
+  MP.Play 		
+End Sub
+Sub Button3_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "3-.wav")
+  MP.Play 	
+End Sub
+Sub Button21_Click
+  MP.stop
+  MP.stop
+  
+  MP.Load(File.DirAssets, "7+.wav")
+  MP.Play		
+End Sub
+Sub Button20_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "6+.wav")
+  MP.Play		
+End Sub
+Sub Button2_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "2-.wav")
+  MP.Play 
+End Sub
+Sub Button19_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "5+.wav")
+  MP.Play		
+End Sub
+Sub Button18_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "4+.wav")
+  MP.Play		
+End Sub
+Sub Button17_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "3+.wav")
+  MP.Play		
+End Sub
+Sub Button16_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "2+.wav")
+  MP.Play		
+End Sub
+Sub Button15_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "1+.wav")
+  MP.Play	
+End Sub
+Sub Button14_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "7.wav")
+  MP.Play	
+End Sub
+Sub Button13_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "6.wav")
+  MP.Play	
+End Sub
+Sub Button12_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "5.wav")
+  MP.Play	
+End Sub
+Sub Button11_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "4.wav")
+  MP.Play	
+End Sub
+Sub Button10_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "3.wav")
+  MP.Play	
+End Sub
+Sub Button1_Click
+  MP.stop
+  
+  MP.Load(File.DirAssets, "1-.wav")
+  MP.Play 
+End Sub
+
+Sub stop_Click
+  MP.stop
+End Sub
+
+Sub kill_Click
+  ExitApplication
+End Sub
+
+Sub about_Click
+  StartActivity(about)
+End Sub
+
+Sub record_Click
+  ToastMessageShow("Preparing the AudioRecorder.",False)
+  AR.AudioSource = AR.AS_MIC
+  AR.OutputFormat = AR.OF_THREE_GPP
+  AR.AudioEncoder = AR.AE_AMR_NB
+  AR.setOutputFile(File.DirRootExternal,"myRecording.wav")
+  AR.prepare()
+  ToastMessageShow("AudioRecorder is ready to record.",False)
+  ToastMessageShow("Recording started.",False)
+  AR.Start
+End Sub
+
+Sub srecord_Click
+  ToastMessageShow("Recording stopped.",False)
+  AR.Stop
+  ToastMessageShow("录音文件保存为/sdcard/myRecording.wav。",False)
+End Sub
+Sub ct_Click
+  If i=0 Then
+  Activity.RemoveAllViews
+  Activity.LoadLayout("flute2")
+  i=1
+  Else If i=1 Then 
+  Activity.RemoveAllViews
+  Activity.LoadLayout("flute")
+  i=0
+  End If
+End Sub
+
+
+
+Sub Activity_KeyPress (KeyCode As Int) As Boolean 'Return True to consume the event
+    If KeyCode = KeyCodes.KEYCODE_BACK Then
+	    now = DateTime.now
+	    minutes=DateTime.Getminute(now)
+        seconds=DateTime.GetSecond(now)
+		
+		If nn=0 Then
+		  timeend=minutes*60+seconds
+		  duration=timeend-timebegin
+		End If
+		
+		If duration<3 Then
+		  ExitApplication
+		Else
+		  mm=1
+		  nn=1
+		End If
+		
+        If mm=1 Then
+		  ToastMessageShow("再按一次退出",False)
+		  timebegin=minutes*60+seconds
+		  nn=0
+		End If
+		
+        Return True
+    Else
+        Return False
+    End If	
+End Sub
